@@ -32,3 +32,11 @@ if (!user.bouns) {
 }
 // json to string
 console.log(JSON.stringify(user))
+
+// function
+function add(a: number, b: number, c?: number) {
+    // return c ? a+b+c : a+b
+    return a + b + (c || 0)
+}
+console.log(add(1, 2))
+console.log(add(1, 2, 3))
