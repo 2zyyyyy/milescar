@@ -18,6 +18,8 @@ Page({
     })
   },
   onLoad() {
+    // 测试频繁调用setData
+    this.updatemotto()
     // @ts-ignore
     if (wx.getUserProfile) {
       this.setData({
@@ -45,5 +47,25 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  updatemotto() {
+    // 定义stop标记 10秒后设置为true
+    let stop = false
+    setTimeout(() => {
+      stop = true
+    }, 10000)
+    // 循环体逻辑
+    let count = 0
+    const update = () => {
+      count++
+      if (!stop) {
+        this.setData({
+          motto: `update count:${count}`,
+        }, () => {
+          update()
+        })
+      }
+    }
+    update()
   }
 })

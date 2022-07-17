@@ -3,17 +3,17 @@
 // 数组
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 2, 10]
 // 找得到且只有一个
-console.log('index of 6:', a.indexOf(6))
+// console.log('index of 6:', a.indexOf(6))
 // 找得到但是又多个
-console.log('index of 2:', a.indexOf(2))
+// console.log('index of 2:', a.indexOf(2))
 // 找不到 -1
-console.log('index of 20:', a.indexOf(20))
+// console.log('index of 20:', a.indexOf(20))
 
 // split/join
 const str: string = '1,2,3,4,css,html'
 const num: number[] = [1, 2, 3, 4]
-console.log(str.split(','))
-console.log(num.join(' '))
+// console.log(str.split(','))
+// console.log(num.join(' '))
 
 // object
 const user = {
@@ -25,18 +25,31 @@ const user = {
     salary: 20000,
     bouns: undefined as number | undefined,
     performance: 3.5,
+    // 给对象添加方法 
+    updateBouns() {
+        // 如果奖金没有则计算奖金
+        if (!this.bouns) {
+            this.bouns = this.performance * this.salary
+        }
+    },
 }
-// 如果奖金没有则计算奖金
-if (!user.bouns) {
-    user.bouns = user.performance * user.salary
-}
+user.updateBouns()
+console.log(user)
+
 // json to string
-console.log(JSON.stringify(user))
+// console.log(JSON.stringify(user))
 
 // function
-function add(a: number, b: number, c?: number) {
+function add(a: number, b: number, c?: number, d: number = 0, ...e: number[]) {
     // return c ? a+b+c : a+b
-    return a + b + (c || 0)
+    // return a + b + (c || 0)
+    let sum = a + b + (c || 0) + d
+    for (let i = 0; i < e.length; i++) {
+        sum += e[i]
+    }
+    return sum
 }
-console.log(add(1, 2))
-console.log(add(1, 2, 3))
+// console.log(add(1, 2))
+// console.log(add(1, 2, 3))
+const listNum = [1, 2, 3]
+console.log(add(1, 2, 3, 4, 5, 6, ...listNum))
