@@ -52,4 +52,26 @@ function add(a: number, b: number, c?: number, d: number = 0, ...e: number[]) {
 // console.log(add(1, 2))
 // console.log(add(1, 2, 3))
 const listNum = [1, 2, 3]
-console.log(add(1, 2, 3, 4, 5, 6, ...listNum))
+// console.log(add(1, 2, 3, 4, 5, 6, ...listNum))
+
+// promise
+function addPromise(a: number, b: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+        if (b % 7 === 0) {
+            reject(`bad number:${b}`)
+        }
+        setTimeout(() => {
+            resolve(a + b)
+        }, 2000);
+    })
+}
+
+addPromise(1, 2)
+    .then(res => addPromise(res, 4))
+    .then(res => addPromise(res, 7))
+    .then(res => {
+        console.log('final resule:', res)
+    })
+    .catch(err => {
+        console.log('caught error:', err)
+    })
