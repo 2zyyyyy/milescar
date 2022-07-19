@@ -75,3 +75,20 @@ addPromise(1, 2)
     .catch(err => {
         console.log('caught error:', err)
     })
+
+// 泛型
+// 1.泛型的定义
+class myArray<T> {
+    data: T[] = []
+    add(t: T) {
+        this.data.push(t)
+    }
+    print() {
+        console.log(this.data)
+    }
+}
+
+const arr = new myArray<string>()
+arr.add("万")
+arr.add("里")
+arr.print()
