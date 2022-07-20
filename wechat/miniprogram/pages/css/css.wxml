@@ -1,0 +1,6 @@
+<!-- pages/css/css.wxml -->
+<text wx:if="{{showPath}}">pages/css/css.wxml</text>
+<!-- <text wx:if="{{!showPath}}">showPath is false</text> -->
+<block wx:else>
+    <text>showPath is false</text>
+</block>
