@@ -5,7 +5,25 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showPath: true
+        showPath: true,
+        values: [
+            {
+                id: 1,
+                name: "万里"
+            },
+            {
+                id: 2,
+                name: "zhuzi"
+            },
+            {
+                id: 3,
+                name: "mengyuzhu",
+            },
+            {
+                id: 4,
+                name: "haiyu",
+            },
+        ]
     },
 
     /**

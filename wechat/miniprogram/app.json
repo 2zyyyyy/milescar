@@ -1,13 +1,17 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/logs/logs",
         "pages/css/css"
     ],
+    "permission": {
+        "scope.userLocation": {
+            "desc": "万里租车希望获取你当前的地理位置"
+        }
+    },
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
+        "navigationBarTitleText": "万里租车",
         "navigationBarTextStyle": "black"
     },
     "style": "v2",

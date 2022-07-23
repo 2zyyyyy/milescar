@@ -1,6 +1,14 @@
 <!-- pages/css/css.wxml -->
-<text wx:if="{{showPath}}">pages/css/css.wxml</text>
-<!-- <text wx:if="{{!showPath}}">showPath is false</text> -->
-<block wx:else>
-    <text>showPath is false</text>
-</block>
+<view class="container">
+    <text user-select wx:if="{{showPath}}">pages/css/css.wxml</text>
+    <!-- <text wx:if="{{!showPath}}">showPath is false</text> -->
+    <block wx:else>
+        <text>showPath is false</text>
+    </block>
+    <view class="list">
+        <view class="item cu-avatar xl radius {{val.id%2?'blue':'pink'}}" wx:for="{{values}}" wx:for-item="val" wx:key="id">
+            employee is {{val.name}}
+            <view class="cu-tag badge">99+</view>
+        </view>
+    </view>
+</view>

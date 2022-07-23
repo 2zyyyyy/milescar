@@ -1,1 +1,26 @@
 /* pages/css/css.wxss */
+page {
+    height: 100%;
+}
+
+.item.cu-avatar.xl {
+    width: unset;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.list {
+    height: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.blue {
+    color: blue;
+}
+
+.pink {
+    color: pink;
+}
