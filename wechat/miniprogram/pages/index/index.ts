@@ -1,4 +1,6 @@
 Page({
+  // 定义页面是否展示全局变量
+  pageShowing: false,
   data: {
     setting: {
       skew: 0,
@@ -23,7 +25,7 @@ Page({
     scale: 15,
     markers: [
       {
-        iconPath: "/resources/摩托车.png",
+        iconPath: "/resources/motor.png",
         id: 0,
         latitude: 30.226589,
         longitude: 119.984724,
@@ -31,7 +33,7 @@ Page({
         height: 25
       },
       {
-        iconPath: "/resources/摩托车.png",
+        iconPath: "/resources/motor.png",
         id: 1,
         latitude: 30.230833,
         longitude: 120.008632,
@@ -40,6 +42,28 @@ Page({
       },
     ]
   },
+
+  onShow() {
+    this.pageShowing = true
+  },
+
+  onHide() {
+    this.pageShowing = false
+  },
+
+  // 扫码租车
+  onScanClicked() {
+    wx.scanCode({
+      success: () => {
+        wx.navigateTo({
+          url: '/pages/register/register'
+        })
+      },
+      fail: console.error,
+    })
+  },
+
+  // 回到当前位置
   myLocation() {
     wx.getLocation({
       type: 'gcj02',
@@ -59,5 +83,35 @@ Page({
       }
     })
   },
+
+  // 车辆移动
+  moveCars() {
+    const map = wx.createMapContext("map")
+    const dest = {
+      latitude: 30.226589,
+      longitude: 119.984724,
+    }
+    // 车辆移动具体实现
+    const moveCar = () => {
+      dest.latitude += 0.001
+      dest.longitude += 0.001
+      map.translateMarker({
+        destination: {
+          latitude: dest.latitude,
+          longitude: dest.longitude,
+        },
+        markerId: 0,
+        autoRotate: false,
+        rotate: 0,
+        duration: 3000,
+        animationEnd: () => {
+          if (this.pageShowing) {
+            moveCar()
+          }
+        },
+      })
+    }
+    moveCar()
+  }
 },
 )

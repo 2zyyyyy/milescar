@@ -1,7 +1,8 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/css/css"
+        "pages/css/css",
+        "pages/register/register"
     ],
     "permission": {
         "scope.userLocation": {

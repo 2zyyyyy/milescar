@@ -1,0 +1,29 @@
+.container{
+    padding-top: 80rpx;
+}
+
+.lic-tmp {
+    width: 600rpx;
+    height: 450rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lic-tmp-img {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+}
+
+.instruction {
+    position: absolute;
+    bottom: -90rpx;
+    font-size: 40rpx;
+}
+
+.cuIcon-camerafill{
+    font-size: 220rpx;
+}

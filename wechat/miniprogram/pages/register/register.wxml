@@ -1,0 +1,7 @@
+<view class="container">
+    <view class="lic-tmp">
+        <image class="lic-tmp-img" src="/resources/lic.png"></image>
+        <view class="cuIcon-camerafill lg text-gray"></view>
+        <view class="instruction">请点击上传驾驶证照片</view>
+    </view>
+</view>
