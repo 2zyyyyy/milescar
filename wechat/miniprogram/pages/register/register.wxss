@@ -11,10 +11,13 @@
     align-items: center;
 }
 
-.lic-tmp-img {
-    position: absolute; 
+.stretch{
     width: 100%;
     height: 100%;
+}
+
+.lic-tmp-img {
+    position: absolute; 
     opacity: .2;
 }
 
