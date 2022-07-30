@@ -1,0 +1,22 @@
+page {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    padding-top: 100rpx;
+    padding-bottom: 100rpx;
+}
+
+.sedan {
+    width: 600rpx;
+    height: 360rpx;
+}
+
+.static {
+    text-align: center;
+}
+
+.btn-lock {
+    width: 80%;
+}

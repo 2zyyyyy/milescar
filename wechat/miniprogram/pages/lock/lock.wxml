@@ -1,0 +1,17 @@
+<page>
+    <view class="container">
+        <view class="static">
+            <image class="sedan" src="/resources/sedan.png"></image>
+            <view class="margin-top">
+                <view>驾驶安全是用户的责任</view>
+                <view>请将车辆停放在停车位内</view>
+            </view>
+        </view>
+        <!-- 头像展示 -->
+        <!-- <view class="avatar-container"></view> -->
+        <!-- 立即开锁 -->
+        <button class="bg-grey lg btn-lock round" role="button" aria-disabled="false">
+        立即开锁
+        </button>
+    </view>
+</page>

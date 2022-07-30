@@ -1,4 +1,4 @@
-.container{
+.container {
     padding-top: 80rpx;
 }
 
@@ -11,13 +11,13 @@
     align-items: center;
 }
 
-.stretch{
+.stretch {
     width: 100%;
     height: 100%;
 }
 
 .lic-tmp-img {
-    position: absolute; 
+    position: absolute;
     opacity: .2;
 }
 
@@ -27,6 +27,22 @@
     font-size: 40rpx;
 }
 
-.cuIcon-camerafill{
+.cuIcon-camerafill {
     font-size: 220rpx;
+}
+
+.cu-form-group .title {
+    min-width: calc(4em + 30rpx);
+}
+
+.lic-form {
+    width: 600rpx;
+}
+
+.check {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100rpx;
+    height: 100rpx;
 }
