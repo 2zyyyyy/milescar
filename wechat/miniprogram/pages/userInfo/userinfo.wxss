@@ -1,0 +1,22 @@
+.avatar{
+    width: 80px;
+    height: 80px;
+    padding:0;
+    background: none;
+}
+.avatar image{
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+}
+.weui-input{
+    width: 90%;
+    height: 60px;
+    margin:20px auto;
+    background: #eee;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+.userinfo{
+    padding-top: 20%;
+}

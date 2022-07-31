@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="userinfo">
+        <button class="avatar" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image src="{{avatarUrl}}"></image>
+        </button> 
+        <input type="nickname" class="weui-input" placeholder="请输入昵称"/>
+    </view>
+</view>

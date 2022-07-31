@@ -3,7 +3,8 @@
         "pages/index/index",
         "pages/css/css",
         "pages/register/register",
-        "pages/lock/lock"
+        "pages/lock/lock",
+        "pages/userInfo/userinfo"
     ],
     "permission": {
         "scope.userLocation": {
