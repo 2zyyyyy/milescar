@@ -20,3 +20,8 @@ page {
 .btn-lock {
     width: 80%;
 }
+
+.open-data{
+  width: 160rpx;
+  height: 160rpx;
+}

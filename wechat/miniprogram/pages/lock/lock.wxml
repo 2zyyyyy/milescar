@@ -1,4 +1,5 @@
 <view class="container">
+    <!-- 车辆展示 -->
     <view class="static">
         <image class="sedan" src="/resources/sedan.png" />
         <view class="margin-top">
@@ -6,11 +7,13 @@
             <view>请将车辆停放在停车位内</view>
         </view>
     </view>
+    <!-- 用户头像展示 -->
     <view class="avatar-container">
-        <button class="cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-            <image src="{{avatorUrl}}"></image>
+        <button class="avatar cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image class="open-data" src="{{avatarUrl}}"></image>
         </button>
-        <view class="margin-top">我的头像</view>
+        <view class="margin-top">设置头像</view>
     </view>
+    <!-- 立即开锁 -->
     <button class="bg-grey lg round btn-lock" bindtap="onUnlockTap">立即开锁</button>
 </view>
