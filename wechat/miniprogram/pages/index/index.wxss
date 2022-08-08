@@ -36,3 +36,9 @@ page {
     opacity: .8;
     font-size: large;
 }
+/* .wx-avatar {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius:50%;
+    overflow:hidden;
+} */

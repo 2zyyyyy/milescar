@@ -2,6 +2,7 @@ Page({
   // 定义页面是否展示全局变量
   pageShowing: false,
   data: {
+    avatarUrl: '', 
     setting: {
       skew: 0,
       rotate: 0,
