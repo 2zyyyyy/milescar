@@ -3,7 +3,7 @@
         <view class="payment margin-top">
             <view class="time">
                 <text class="cuIcon-timefill"></text>
-                <text class="time-driven">{{elapsed}}</text>
+                <text class="time-driven">{{elpased}}</text>
             </view>
             <view class="fee margin-top-sm">
                 <text>费用：{{fee}} 元</text>
@@ -14,5 +14,11 @@
                 结束行程
             </button>
     </view>
-    <map id="map" latitude="{{location.latitude}}" longitude="location.longitude" show-location scale="{{scale}}" markers="{{markers}}"></map>
+    <map
+        id="map" 
+        latitude="{{location.latitude}}"
+        longitude="{{location.longitude}}"
+        show-location scale="{{scale}}"
+        markers="{{markers}}">
+        </map>
 </view>

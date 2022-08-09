@@ -2,7 +2,7 @@
   id="map" 
   latitude="{{location.latitude}}" 
   longitude="{{location.longitude}}" 
-  scale="{{scale}}" 
+  scale="{{scale}}"
   setting="{{setting}}" 
   enable-overlooking="{{isOverLooking}}" 
   enable-3D="{{is3D}}" 
