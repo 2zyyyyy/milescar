@@ -2,7 +2,7 @@ Page({
   // 定义页面是否展示全局变量
   pageShowing: false,
   data: {
-    avatarUrl: '', 
+    avatarUrl: '',
     setting: {
       skew: 0,
       rotate: 0,
@@ -56,6 +56,9 @@ Page({
   onScanClicked() {
     wx.scanCode({
       success: () => {
+        // TODO:get car_id from scan result
+        const carID = 'test123456'
+        const redirectUrl = `/pages/lock/lock?car_id=${carID}`
         wx.navigateTo({
           url: '/pages/register/register'
         })
@@ -113,6 +116,13 @@ Page({
       })
     }
     moveCar()
+  },
+
+  // my trips 
+  onMyTripsTap() {
+      wx.navigateTo({
+          url: '/pages/trips/trips'
+      })
   }
 },
 )

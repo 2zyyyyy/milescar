@@ -1,0 +1,22 @@
+swiper {
+    width: 750rpx;
+    height: 306rpx;
+}
+
+.swiper-image {
+    width: 100%;
+    height: 100%;
+}
+
+.open-data{
+    width: 160rpx;
+    height: 160rpx;
+  }
+  
+  .view-center {
+      display: flex;
+      align-items: center;
+      vertical-align: center;
+      justify-content: center;
+      flex-direction: row;
+  }

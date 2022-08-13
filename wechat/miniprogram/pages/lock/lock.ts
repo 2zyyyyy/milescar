@@ -10,13 +10,17 @@ Page({
             avatarUrl: avatarUrl,
         })
         console.log('avatarUrl:', avatarUrl)
-    }, 
+    },
     load(e: any) {
         this.setData({
             height: e.detail.height,
             width: e.detail.width
         })
         console.log('height:', this.data.height, 'width:', this.data.height)
+    },
+
+    async onLoad(opt) {
+        console.log('unlocking car', opt.car_id)
     },
 
     onUnlockTap() {
@@ -31,19 +35,21 @@ Page({
                     }
                 })
             }
-        }),
+        })
+        const tripID = 'test123'
+
         wx.showLoading({
             mask: true,
             title: '开锁中',
         }),
-        setTimeout(() => {
-            wx.redirectTo({
-                url: '/pages/driving/driving',
-                complete: () => {
-                    wx.hideLoading()
-                }
-            })
-        }, 2000); 
+            setTimeout(() => { 
+                wx.redirectTo({
+                    url: `/pages/driving/driving?trip_id=${tripID}`,
+                    complete: () => {
+                        wx.hideLoading()
+                    }
+                })
+            }, 2000);
     },
     fail: () => {
         wx.showToast({

@@ -8,7 +8,7 @@
   enable-3D="{{is3D}}" 
   markers="{{markers}}">
     <cover-view class="icon-container">
-      <cover-image src="/resources/account.png"></cover-image>
+      <cover-image src="/resources/account.png" bindtap="onMyTripsTap"></cover-image>
       <cover-image 
         src="/resources/location.png"
         bindtap="myLocation"

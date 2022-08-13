@@ -1,4 +1,5 @@
 Page({
+    redirectUrl: '',
     data: {
         genders: ['保密', '男', '女'],
         gender: 0,
@@ -9,6 +10,13 @@ Page({
         // 0 未审核  10 审核中  20 审核结束
         status: 0 as 0 | 10 | 20
     },
+
+    onLoad(opt) {
+        if (opt.redirect) {
+            this.redirectUrl = opt.redirect
+        }
+    },
+
     onUploadImg() {
         wx.chooseImage({
             success: res => {
@@ -57,8 +65,10 @@ Page({
         this.setData({
             status: 20
         })
-        wx.redirectTo({
-            url: '/pages/lock/lock',
-        })
+        if (this.redirectUrl) {
+            wx.redirectTo({
+                url: this.redirectUrl,
+            })
+        }
     },
 })

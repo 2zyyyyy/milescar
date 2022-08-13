@@ -3,9 +3,9 @@ const centPreSec = 0.8
 
 // 格式化行程时间
 function formatDuration(sec: number) {
-    const padString = (n: number) => 
-        n < 10 ? '0'+n.toFixed(0) : n.toFixed(0)
-    const h = Math.floor(sec/3600)
+    const padString = (n: number) =>
+        n < 10 ? '0' + n.toFixed(0) : n.toFixed(0)
+    const h = Math.floor(sec / 3600)
     sec -= 3600 * h
     const m = Math.floor(sec / 60)
     sec -= 60 * m
@@ -15,12 +15,12 @@ function formatDuration(sec: number) {
 
 // 格式化行程对应费用
 function formatFee(cents: number) {
-    return (cents/100).toFixed(2)
+    return (cents / 100).toFixed(2)
 }
 
 Page({
-    timer: undefined as number|undefined,
-    data: { 
+    timer: undefined as number | undefined,
+    data: {
         location: {
             latitude: 30.230486,
             longitude: 119.991007
@@ -29,8 +29,9 @@ Page({
         elpased: '00:00:00',
         fee: '0.00'
     },
-    
-    onLoad() {
+
+    onLoad(opt) {
+        console.log('current trip:', opt.trip_id )
         this.setupLocationUpdator()
         this.setupTimer()
     },
@@ -58,15 +59,15 @@ Page({
         })
     },
     setupTimer() {
-        let elapsedSec = 0 
+        let elapsedSec = 0
         let cents = 0
-        this.timer = setInterval( () => {
-             elapsedSec++
-              cents += centPreSec
-             this.setData({
-                 elpased: formatDuration(elapsedSec),
-                 fee: formatFee(cents),
-             })
+        this.timer = setInterval(() => {
+            elapsedSec++
+            cents += centPreSec
+            this.setData({
+                elpased: formatDuration(elapsedSec),
+                fee: formatFee(cents),
+            })
         }, 1000)
     },
 }) 

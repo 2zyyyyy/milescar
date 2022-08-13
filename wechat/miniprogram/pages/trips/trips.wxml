@@ -1,0 +1,26 @@
+<swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoPlay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    circular="{{circular}}"
+    display-multiple-items="{{multiItemCount}}"
+    previous-margin="{{preMargin}}"
+    next-margin="{{nextMargin}}"
+    vertical="{{vertical}}"
+    current="{{current}}"
+    bindchange="onSwiperChange"> 
+    <swiper-item wx:for="{{promotionItems}}" wx:key="promotionID" 
+            bindtap="onPromotionItemTap"
+            data-promotion-id="{{item.promotionID}}">
+            <image class="swiper-image" src="{{item.img}}" />
+        </swiper-item>
+</swiper>
+<view class="avatar-container margin-top margin-right-xl view-center">
+    <view class="avatar margin-right">
+        <button class="cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <image class="open-data" src="{{avatarUrl}}"></image>
+        </button>
+    </view>
+    <view class="text-blue" bindtap="onRegisterTap">驾驶资格未认证</view>
+</view>
