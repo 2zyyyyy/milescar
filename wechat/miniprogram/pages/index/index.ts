@@ -60,7 +60,7 @@ Page({
         const carID = 'test123456'
         const redirectUrl = `/pages/lock/lock?car_id=${carID}`
         wx.navigateTo({
-          url: '/pages/register/register'
+          url: `/pages/register/register?redirect=${encodeURIComponent(redirectUrl )}`
         })
       },
       fail: console.error,

@@ -13,7 +13,7 @@ Page({
 
     onLoad(opt) {
         if (opt.redirect) {
-            this.redirectUrl = opt.redirect
+            this.redirectUrl = decodeURIComponent(opt.redirect) 
         }
     },
 
