@@ -24,3 +24,12 @@
     </view>
     <view class="text-blue" bindtap="onRegisterTap">驾驶资格未认证</view>
 </view>
+<!-- 页面滚动 -->
+<scroll-view scroll-y scroll-with-animation enable-back-to-top>
+    <view wx:for="{{trips}}" wx:key="id" class="trip">
+        <view class='cu-item text-green cur'>
+            <view class='action'></view>
+            <text class='cu-item text-green cur'>{{item.id}}</text>
+        </view>
+    </view>
+</scroll-view>

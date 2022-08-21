@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 Page({
   // 定义页面是否展示全局变量
   pageShowing: false,
@@ -58,9 +60,14 @@ Page({
       success: () => {
         // TODO:get car_id from scan result
         const carID = 'test123456'
-        const redirectUrl = `/pages/lock/lock?car_id=${carID}`
+        const redirectUrl = routing.lock({
+          car_id: carID,
+        })
         wx.navigateTo({
-          url: `/pages/register/register?redirect=${encodeURIComponent(redirectUrl )}`
+          // url: `/pages/register/register?redirect=${encodeURIComponent(redirectUrl)}`
+          url: routing.register({
+            redirectUrl: redirectUrl
+          })
         })
       },
       fail: console.error,
@@ -120,9 +127,9 @@ Page({
 
   // my trips 
   onMyTripsTap() {
-      wx.navigateTo({
-          url: '/pages/trips/trips'
-      })
+    wx.navigateTo({
+      url: routing.mytrips()
+    })
   }
 },
 )

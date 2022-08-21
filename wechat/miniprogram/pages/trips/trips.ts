@@ -1,3 +1,14 @@
+import { routing } from "../../utils/routing"
+
+interface Trip {
+    id: string
+    start: string
+    end: string
+    duration: string
+    fee: string
+    distance: string
+}
+
 Page({
     data: {
         indicatorDots: true,
@@ -10,11 +21,12 @@ Page({
         nextMargin: '',
         vertical: false,
         current: 0,
+        trips: [] as Trip[],
         promotionItems: [
             {
                 img: 'https://img.mukewang.com/5f7301d80001fdee18720764.jpg',
                 promotionID: 1,
-            },            
+            },
             {
                 img: 'https://img.mukewang.com/5f6805710001326c18720764.jpg',
                 promotionID: 2,
@@ -31,17 +43,39 @@ Page({
         avatarUrl: '',
     },
 
+    onLoad() {
+        this.populateTrips()
+    },
+
+    populateTrips() {
+        const trips: Trip[] = []
+        for (let i = 0; i < 50; i++) {
+            trips.push({
+                id: (1001 + i).toString(),
+                start: '之江实验室',
+                end: '湘湖风景区',
+                distance: '48公里',
+                duration: '1时29分',
+                fee: '287.46元',
+            })
+        }
+        this.setData({
+            trips
+        })
+    },
+
     onChooseAvatar(e: any) {
         const { avatarUrl } = e.detail
         this.setData({
             avatarUrl: avatarUrl,
         })
         console.log('avatarUrl:', avatarUrl)
-    }, 
+    },
 
     onRegisterTap() {
-         wx.navigateTo({
-             url: '/pages/register/register'
-         })
+        wx.navigateTo({
+            //  url: '/pages/register/register'
+            url: routing.register()
+        })
     },
- })
+})

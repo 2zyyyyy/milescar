@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 Page({
     data: {
         avatarUrl: '',
@@ -19,8 +21,9 @@ Page({
         console.log('height:', this.data.height, 'width:', this.data.height)
     },
 
-    async onLoad(opt) {
-        console.log('unlocking car', opt.car_id)
+    async onLoad(opt:Record<'car_id', string>) {
+        const o : routing.LockOpts = opt 
+        console.log('unlocking car', o.car_id)
     },
 
     onUnlockTap() {
@@ -42,9 +45,11 @@ Page({
             mask: true,
             title: '开锁中',
         }),
-            setTimeout(() => { 
+            setTimeout(() => {
                 wx.redirectTo({
-                    url: `/pages/driving/driving?trip_id=${tripID}`,
+                    url: routing.driving({
+                        trip_id: tripID, 
+                    }),
                     complete: () => {
                         wx.hideLoading()
                     }
