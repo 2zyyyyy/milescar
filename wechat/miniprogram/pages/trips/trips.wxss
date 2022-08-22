@@ -8,15 +8,15 @@ swiper {
     height: 100%;
 }
 
-.open-data{
+.open-data {
     width: 160rpx;
     height: 160rpx;
-  }
-  
-  .view-center {
-      display: flex;
-      align-items: center;
-      vertical-align: center;
-      justify-content: center;
-      flex-direction: row;
-  }
+}
+
+.view-center {
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: center;
+    flex-direction: row;
+}

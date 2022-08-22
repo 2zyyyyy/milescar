@@ -7,6 +7,7 @@ interface Trip {
     duration: string
     fee: string
     distance: string
+    status: string 
 }
 
 Page({
@@ -22,6 +23,9 @@ Page({
         vertical: false,
         current: 0,
         trips: [] as Trip[],
+        tripsHeight: 0,
+        scrollTop: 0, 
+        scrollIntoView: '',
         promotionItems: [
             {
                 img: 'https://img.mukewang.com/5f7301d80001fdee18720764.jpg',
@@ -57,7 +61,8 @@ Page({
                 distance: '48公里',
                 duration: '1时29分',
                 fee: '287.46元',
-            })
+                status: '已完成',
+            }) 
         }
         this.setData({
             trips
@@ -70,6 +75,14 @@ Page({
             avatarUrl: avatarUrl,
         })
         console.log('avatarUrl:', avatarUrl)
+    },
+
+    onReady() {
+        wx.createSelectorQuery().select('#heading').boundingClientRect(rect => {
+            this.setData({
+                tripsHeight: wx.getSystemInfoSync().windowHeight - rect.height
+            })
+        }).exec()
     },
 
     onRegisterTap() {
