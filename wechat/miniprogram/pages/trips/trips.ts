@@ -7,7 +7,19 @@ interface Trip {
     duration: string
     fee: string
     distance: string
-    status: string 
+    status: string
+}
+
+interface MainItem {
+    id: string
+    navId: string
+    data: Trip
+}
+
+interface NavItem {
+    id: string
+    mainId: string
+    lable: string
 }
 
 Page({
@@ -22,10 +34,12 @@ Page({
         nextMargin: '',
         vertical: false,
         current: 0,
-        trips: [] as Trip[],
+        mainItems: [] as MainItem[],
+        mainScroll: '',
+        navItems: [] as NavItem[],
         tripsHeight: 0,
-        scrollTop: 0, 
-        scrollIntoView: '',
+        scrollTop: 0,
+        navCount: 0,
         promotionItems: [
             {
                 img: 'https://img.mukewang.com/5f7301d80001fdee18720764.jpg',
@@ -52,20 +66,35 @@ Page({
     },
 
     populateTrips() {
-        const trips: Trip[] = []
+        const mainItems: MainItem[] = []
+        const navItems: NavItem[] = []
         for (let i = 0; i < 50; i++) {
-            trips.push({
-                id: (1001 + i).toString(),
-                start: '之江实验室',
-                end: '湘湖风景区',
-                distance: '48公里',
-                duration: '1时29分',
-                fee: '287.46元',
-                status: '已完成',
-            }) 
+            const mainId = 'main-' + i
+            const navId = 'nav-' + i
+            const tripId = (1001 + i).toString()
+            mainItems.push({
+                id: mainId,
+                navId: navId,
+                data: {
+                    id: tripId,
+                    start: '之江实验室',
+                    end: '湘湖风景区',
+                    distance: '48公里' ,
+                    duration: '1时29分',
+                    fee: '287.46元',
+                    status: '已完成',
+                },
+            })
+
+            navItems.push({
+                id: navId,
+                mainId: mainId,
+                lable: tripId,
+            })
         }
         this.setData({
-            trips
+            mainItems,
+            navItems,
         })
     },
 
@@ -79,8 +108,10 @@ Page({
 
     onReady() {
         wx.createSelectorQuery().select('#heading').boundingClientRect(rect => {
+            const height =  wx.getSystemInfoSync().windowHeight - rect.height
             this.setData({
-                tripsHeight: wx.getSystemInfoSync().windowHeight - rect.height
+                tripsHeight: height,
+                navCount: Math.round(height / 50),
             })
         }).exec()
     },

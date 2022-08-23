@@ -1,38 +1,35 @@
 <view id="heading" class="padding-bottom-xs">
-    <swiper
-    indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoPlay}}"
-    interval="{{interval}}"
-    duration="{{duration}}"
-    circular="{{circular}}"
-    display-multiple-items="{{multiItemCount}}"
-    previous-margin="{{preMargin}}"
-    next-margin="{{nextMargin}}"
-    vertical="{{vertical}}"
-    current="{{current}}"
-    bindchange="onSwiperChange"> 
-    <swiper-item wx:for="{{promotionItems}}" wx:key="promotionID" 
-            bindtap="onPromotionItemTap"
-            data-promotion-id="{{item.promotionID}}">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoPlay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" display-multiple-items="{{multiItemCount}}" previous-margin="{{preMargin}}" next-margin="{{nextMargin}}" vertical="{{vertical}}" current="{{current}}" bindchange="onSwiperChange">
+        <swiper-item wx:for="{{promotionItems}}" wx:key="promotionID" bindtap="onPromotionItemTap" data-promotion-id="{{item.promotionID}}">
             <image class="swiper-image" src="{{item.img}}" />
         </swiper-item>
     </swiper>
     <view class="avatar-container view-center" style="background-color: white;">
-    <view class="avatar margin-right">
-        <button class="cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-            <image class="open-data" src="{{avatarUrl}}"></image>
-        </button>
-    </view>
-    <view class="text-blue" bindtap="onRegisterTap">驾驶资格未认证</view>
+        <view class="avatar margin-right">
+            <button class="cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+                <image class="open-data" src="{{avatarUrl}}"></image>
+            </button>
+        </view>
+        <view class="text-blue" bindtap="onRegisterTap">驾驶资格未认证</view>
     </view>
 </view>
 <!-- 页面滚动 -->
-<scroll-view scroll-y scroll-with-animation enable-back-to-top style="height: {{tripsHeight}}px" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
-    <view id="main-{{item.id}}" wx:for="{{trips}}" wx:key="id" class="trip">
-        <view class="cu-bar solid-bottom bg-white">
-            <view class="action"/>
-            <text class="cuIcon-title text-green" style="margin-right: 70%;">{{item.id}}</text>
-            <view >{{item.status}}</view>
+<view class="nav-container">
+    <swiper duration="500" display-multiple-items="{{navCount}}" vertical>
+        <swiper-item wx:for="{{navItems}}" wx:key="id" item-id="{{item.id}}"
+        data-main-id:="{{item.mainId}}">
+            <view>{{item.lable}}</view>
+        </swiper-item>
+    </swiper>
+    <scroll-view scroll-y scroll-with-animation enable-back-to-top style="height: {{tripsHeight}}px" scroll-into-view="{{mainScroll}}">
+        <view wx:for="{{mainItems}}" wx:key="id" class="bg-white" id="{{item.id}}" data-nav-id="{{item.navId}}">
+            <view class="cu-bar solid-bottom bg-white">
+                <view class="action" />
+                <text class="cuIcon-title text-green">
+                    {{item.data.id}}
+                </text>
+                <view>{{item.data.status}}</view>
+            </view>
         </view>
-    </view>
-</scroll-view>
+    </scroll-view>
+</view>

@@ -20,3 +20,11 @@ swiper {
     justify-content: center;
     flex-direction: row;
 }
+
+.nav-container {
+    display: flex;
+}
+
+.nav-container swiper {
+    width: 200rpx ;
+}
