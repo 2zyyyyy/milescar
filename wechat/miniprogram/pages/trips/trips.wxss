@@ -8,6 +8,12 @@ swiper {
     height: 100%;
 }
 
+.avatar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .open-data {
     width: 160rpx;
     height: 160rpx;
@@ -21,10 +27,56 @@ swiper {
     flex-direction: row;
 }
 
+.detail-row {
+    display: flex;
+}
+
+.trip {
+    border-radius: 25rpx;
+}
+
+.fee {
+    font-style: italic;
+}
+
+.trip-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mytrips-heading {
+    position: absolute;
+    left: 50rpx;
+    font-style: italic;
+    font-weight: bold;
+}
+
 .nav-container {
     display: flex;
 }
 
 .nav-container swiper {
-    width: 200rpx ;
+    width: 200rpx;
+}
+
+.nav .cu-item {
+    margin: unset;
+    padding: unset;
+    text-align: center;
+}
+
+.cur {
+    width: 8rpx;
+    border-radius: 10rpx 0 0 10rpx;
+    position: absolute;
+    background-color: currentColor;
+    top: 0;
+    right: 0rpx;
+    bottom: 0;
+    margin: auto;
+}
+
+.in-progress {
+    font-style: italic;
 }

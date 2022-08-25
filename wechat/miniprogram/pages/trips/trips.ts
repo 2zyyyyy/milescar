@@ -79,7 +79,7 @@ Page({
                     id: tripId,
                     start: '之江实验室',
                     end: '湘湖风景区',
-                    distance: '48公里' ,
+                    distance: '48公里',
                     duration: '1时29分',
                     fee: '287.46元',
                     status: '已完成',
@@ -108,7 +108,7 @@ Page({
 
     onReady() {
         wx.createSelectorQuery().select('#heading').boundingClientRect(rect => {
-            const height =  wx.getSystemInfoSync().windowHeight - rect.height
+            const height = wx.getSystemInfoSync().windowHeight - rect.height
             this.setData({
                 tripsHeight: height,
                 navCount: Math.round(height / 50),
@@ -121,5 +121,16 @@ Page({
             //  url: '/pages/register/register'
             url: routing.register()
         })
+    },
+
+    onNavItemTap(e: any) {
+        const mainId: string = e.currentTarget?.dataset?.mainId
+        // const navId: string = e.currentTarget?.id
+        if (mainId) {
+            this.setData({
+                mainScroll: mainId,
+                // navSel: navId,
+            })
+        }
     },
 })

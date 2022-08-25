@@ -4,7 +4,7 @@
             <image class="swiper-image" src="{{item.img}}" />
         </swiper-item>
     </swiper>
-    <view class="avatar-container view-center" style="background-color: white;">
+     <view class="avatar-container view-center" style="background-color: white;">
         <view class="avatar margin-right">
             <button class="cu-avatar round lg bg-grey margin-xs" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
                 <image class="open-data" src="{{avatarUrl}}"></image>
@@ -15,20 +15,56 @@
 </view>
 <!-- 页面滚动 -->
 <view class="nav-container">
-    <swiper duration="500" display-multiple-items="{{navCount}}" vertical>
-        <swiper-item wx:for="{{navItems}}" wx:key="id" item-id="{{item.id}}"
-        data-main-id:="{{item.mainId}}">
+    <swiper duration="500" display-multiple-items="{{navCount}}"
+        vertical style="height:{{tripsHeight}}px"
+        class="bg-white nav" current-item-id="{{navScroll}}">
+        <swiper-item wx:for="{{navItems}}" wx:key="id"
+            id="{{item.id}}" item-id="{{item.id}}" data-main-id="{{item.mainId}}"
+            class="cu-item {{navSel===item.id?'text-green':''}}" 
+            bindtap="onNavItemTap">
             <view>{{item.lable}}</view>
         </swiper-item>
+        <!-- <swiper-item wx:for="{{navItems}}" wx:key="id" item-id="{{item.id}}"
+        data-main-id:="{{item.mainId}}" class="cu-item" bindtap="onNavItemTap">
+            <view>{{item.lable}}</view>
+        </swiper-item> -->
     </swiper>
-    <scroll-view scroll-y scroll-with-animation enable-back-to-top style="height: {{tripsHeight}}px" scroll-into-view="{{mainScroll}}">
-        <view wx:for="{{mainItems}}" wx:key="id" class="bg-white" id="{{item.id}}" data-nav-id="{{item.navId}}">
-            <view class="cu-bar solid-bottom bg-white">
-                <view class="action" />
-                <text class="cuIcon-title text-green">
-                    {{item.data.id}}
-                </text>
-                <view>{{item.data.status}}</view>
+    <scroll-view scroll-y scroll-with-animation enable-back-to-top
+        style="height:{{tripsHeight}}px"
+        scroll-into-view="{{mainScroll}}"
+        bindscroll="onMainScroll" >
+        <view wx:for="{{mainItems}}" wx:key="id" class="bg-white margin-bottom margin-lr padding-bottom trip main-item"
+            id="{{item.id}}" data-nav-id="{{item.navId}}" data-nav-scroll-id="{{item.navScrollId}}"
+            data-trip-id="{{item.data.id}}" data-trip-in-progress="{{item.data.inProgress}}" bindtap="onMianItemTap">
+            <view class='cu-bar solid-bottom padding-right'>
+                <view class='action'>
+                <text class='cuIcon-title text-green'></text> {{item.data.shortId}} </view>
+                <view class="{{item.data.inProgress?'text-blue in-progress text-lg text-bold':''}}">{{item.data.status}}
+                  <text wx:if="{{item.data.inProgress}}" class="cuIcon-right"/>
+                </view>
+            </view>
+            <view class="trip-detail padding-right">
+                <view class="detail-l">
+                    <view class="detail-row">
+                        <view class="field padding-lr">起</view>
+                        <view class="value text-black text-bold">{{item.data.start}}</view>                
+                    </view>
+                    <view wx:if="{{!item.data.inProgress}}" class="detail-row">
+                        <view class="field padding-lr">终</view>
+                        <view class="value text-black text-bold">{{item.data.end}}</view>                
+                    </view>
+                    <view wx:if="{{!item.data.inProgress}}" class="detail-row">
+                        <view class="field padding-lr">距</view>
+                        <view class="value text-black text-bold">{{item.data.distance}}</view>                
+                    </view>
+                    <view wx:if="{{!item.data.inProgress}}" class="detail-row">
+                        <view class="field padding-lr">时</view>
+                        <view class="value text-black text-bold">{{item.data.duration}}</view>                
+                    </view>
+                </view>
+                <view wx:if="{{!item.data.inProgress}}" class="detail-r">
+                    <view class="fee text-xxl text-price text-bold">{{item.data.fee}}</view>
+                </view>
             </view>
         </view>
     </scroll-view>
