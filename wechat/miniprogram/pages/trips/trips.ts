@@ -176,7 +176,7 @@ Page({
 
         this.setData({
             navSel: selItem.dataset.navId,
-            navScroll: selItem.dataset.navScrollId
+            navScroll: selItem.dataset.navScrollId,
         })
     },
 })

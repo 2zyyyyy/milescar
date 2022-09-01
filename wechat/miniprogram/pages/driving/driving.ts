@@ -34,7 +34,7 @@ Page({
 
     onLoad(opt: Record<'trip_id', string>) {
         const o: routing.DrivingOpts = opt
-        console.log('current trip:', o.trip_id )
+        console.log('current trip:', o.trip_id)
         this.setupLocationUpdator()
         this.setupTimer()
     },
@@ -72,5 +72,11 @@ Page({
                 fee: formatFee(cents),
             })
         }, 1000)
+    },
+    // 结束行程
+    onEndTripTap() {
+        wx.redirectTo({
+            url: routing.mytrips() 
+        })
     },
 }) 

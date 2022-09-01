@@ -23,7 +23,6 @@
             class="cu-item {{navSel===item.id?'text-green':' '}}" 
             bindtap="onNavItemTap">
             <view>{{item.lable}}</view>
-            <view wx:if="{{navSel===item.id}}" class="cur"></view>
         </swiper-item>
     </swiper>
     <scroll-view scroll-y scroll-with-animation enable-back-to-top
@@ -33,7 +32,7 @@
         <view wx:for="{{mainItems}}" wx:key="id" class="bg-white margin-bottom margin-lr padding-bottom trip main-item"
             id="{{item.id}}" data-nav-id="{{item.navId}}" data-nav-scroll-id="{{item.navScrollId}}"
             data-trip-id="{{item.data.id}}" data-trip-in-progress="{{item.data.inProgress}}" bindtap="onMianItemTap">
-            <view class='cu-bar solid-bottom padding-right'>
+            <view class='cu-bar solid-bottom padding-righ t'>
                 <view class='action'>
                 <text class='cuIcon-title text-green'></text> {{item.data.id}} </view>
                 <view class="{{item.data.inProgress?'text-blue in-progress text-lg text-bold':''}}">{{item.data.status}}
