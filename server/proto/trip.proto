@@ -1,0 +1,31 @@
+syntax = "proto3";
+package milescar;
+option go_package="milescar/proto/gen/go;trippb";
+
+// 生成 trip.pb.go 文件命令(需要在proto路径下面执行)：
+// protoc -I=. --go_out=paths=source_relative:gen/go trip.proto
+
+message Location {
+    double latitude = 1;
+    double longitude = 2;
+}
+
+// 枚举
+enum TripStatus {
+    TS_NOT_SPECIFIED = 0;
+    NOT_STARTED = 1;
+    IN_PROGRESS = 2;
+    FINISHED = 3;
+    PAID = 4;
+}
+
+message Trip {
+    string start = 1;
+    Location start_pos = 5;
+    repeated Location path_locations = 7;
+    string end = 2;
+    Location end_pos = 6;
+    int64 duration_sec = 3;
+    int64 fee_cent = 4;
+    TripStatus status = 8;
+}
