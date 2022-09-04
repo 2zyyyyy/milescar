@@ -2,8 +2,8 @@ syntax = "proto3";
 package milescar;
 option go_package="milescar/proto/gen/go;trippb";
 
-// 生成 trip.pb.go 文件命令(需要在proto路径下面执行)：
-// protoc -I=. --go_out=paths=source_relative:gen/go trip.proto
+// 生成 trip.pb.go 文件命令(需要在proto路径下面执行,文件生成到proto/gen/go下面)：
+// protoc --go_out=paths=source_relative:gen/go trip.proto
 
 message Location {
     double latitude = 1;
@@ -19,13 +19,39 @@ enum TripStatus {
     PAID = 4;
 }
 
+// protobuf 所有字段都是可选的
 message Trip {
     string start = 1;
     Location start_pos = 5;
+    // repeated：切片
     repeated Location path_locations = 7;
     string end = 2;
     Location end_pos = 6;
     int64 duration_sec = 3;
     int64 fee_cent = 4;
     TripStatus status = 8;
+}
+
+// request(获取行程id)
+message GetTripRequest {
+    string id = 1;
+}
+
+// response(行程数据)
+message GetTripResponse {
+    string id = 1;
+    Trip trip = 2;
+}
+// protoc --go-grpc_out=paths=source_relative:gen/go trip.proto
+/* 运行后生成的文件及目录结构
+proto
+    trip.proto
+    gen
+        go
+        trip.pb.go
+        trip_grpc.pb.go
+*/
+
+service  TripService {
+    rpc GetTrip (GetTripRequest) returns (GetTripResponse);
 }
