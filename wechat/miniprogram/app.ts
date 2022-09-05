@@ -2,11 +2,13 @@
 
 App<IAppOption>({
   globalData: {},
-  onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  async onLaunch() {
+    wx.request({
+      url: 'http://localhost:8082/trip/1233',
+      method: 'GET',
+      success: console.log,
+      fail: console.error,
+    })
 
     // 登录
     wx.login({

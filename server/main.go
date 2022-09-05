@@ -5,6 +5,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/protobuf/encoding/protojson"
 	"log"
 	trippb "milescar/proto/gen/go"
 	"milescar/tripservice"
@@ -30,7 +31,15 @@ func startGRPCGateway() {
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
-	mux := runtime.NewServeMux()
+	mux := runtime.NewServeMux(runtime.WithMarshalerOption(
+		runtime.MIMEWildcard,
+		&runtime.JSONPb{
+			MarshalOptions: protojson.MarshalOptions{
+				UseEnumNumbers: true, // 枚举字段的值使用数字
+				UseProtoNames:  true, // 传给 clients 的 json key 使用下划线 `_`
+			},
+		},
+	))
 	err := trippb.RegisterTripServiceHandlerFromEndpoint(
 		ctx,
 		mux,
