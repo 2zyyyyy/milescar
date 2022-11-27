@@ -13,6 +13,20 @@
     1. cd wechat
     2. npm install
     3. 打开微信小程序开发工具，点击编译
+### 
+
 ### 业务流程图
+// todo
 
 ### 相关截图
+
+![](https://s2.loli.net/2022/11/27/4EAoRlZznMvUyO5.jpg)
+![](https://s2.loli.net/2022/11/27/lBeDNs8Xvw3dWkM.jpg)
+![](https://s2.loli.net/2022/11/27/x1eGs2iYUAE8I5B.jpg)
+![](https://s2.loli.net/2022/11/27/B6TJStpcQOA953v.jpg)
+![](https://s2.loli.net/2022/11/27/tr7wGWON6vShFHy.jpg)
+![](https://s2.loli.net/2022/11/27/a4HEvnYTd5m7XuI.jpg)
+![](https://s2.loli.net/2022/11/27/PE4aHKe98z3xywV.jpg)
+![](https://s2.loli.net/2022/11/27/puYtiyPHMXfbW14.jpg)
+![](https://s2.loli.net/2022/11/27/yZo6kCVuOYfp7S4.jpg)
+![](https://s2.loli.net/2022/11/27/LXVwIK4lTZ9QNR2.jpg)

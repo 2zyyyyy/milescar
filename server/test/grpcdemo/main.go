@@ -35,8 +35,8 @@ func startGRPCGateway() {
 		runtime.MIMEWildcard,
 		&runtime.JSONPb{
 			MarshalOptions: protojson.MarshalOptions{
-				UseEnumNumbers: true, // 枚举字段的值使用数字
-				UseProtoNames:  true, // 传给 clients 的 json key 使用下划线 `_`
+				UseEnumNumbers: true,  // 枚举字段的值使用数字
+				UseProtoNames:  false, // 传给 clients 的 json key 使用下划线驼峰命名（true则是'_'）
 			},
 		},
 	))
